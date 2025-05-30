@@ -1,0 +1,928 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Kelly Slab', serif;
+    color: #000000;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #ffffff;
+}
+
+/* Шапка (идентичная главной странице) */
+.container {
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 44px;
+    display: flex;
+    align-items: center;
+}
+
+.header {
+    background-color: #ffffff;
+    padding: 17px 0;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    margin-right: 20px;
+}
+
+.logo img {
+    width: 213px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.05);
+}
+
+.menu {
+    margin-right: auto;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.menu a {
+    font-family: 'Kelly Slab', serif;
+    font-size: 24px;
+    color: #000000;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    position: relative;
+    padding: 5px 0;
+}
+
+.menu a:hover {
+    color: #F58C8B;
+}
+
+.menu a.active {
+    color: #F58C8B;
+    font-weight: bold;
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #F58C8B;
+    transition: width 0.3s ease;
+}
+
+.menu a:hover::after,
+.menu a.active::after {
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+    gap: 23px;
+    margin-left: 30px;
+}
+
+.btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-online {
+    width: 248px;
+    height: 57px;
+    font-family: 'Kelly Slab', serif;
+    background-color: #F58C8B;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-call {
+    width: 200px;
+    height: 57px;
+    font-family: 'Kelly Slab', serif;
+    background-color: #F58C8B;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-online:hover,
+.btn-call:hover {
+    background-color: #d47a79;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-online:active,
+.btn-call:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-left: 30px;
+}
+
+.social-icon img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover img {
+    transform: scale(1.1) rotate(10deg);
+    filter: drop-shadow(0 0 5px rgba(245, 140, 139, 0.7));
+}
+
+/* Основной контент */
+.portfolio-page {
+    padding: 50px 0;
+}
+
+.portfolio-hero {
+    position: relative;
+    max-width: 1836px;
+    margin: 0 auto;
+    padding: 0 44px;
+}
+
+.portfolio-container {
+    position: relative;
+    z-index: 2;
+}
+
+.portfolio-description {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+.portfolio-description h1 {
+    font-size: 42px;
+    color: #F58C8B;
+    margin-bottom: 20px;
+}
+
+.portfolio-description p {
+    font-size: 20px;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+.scroll-hint {
+    font-size: 18px;
+    color: #F58C8B;
+    animation: pulse 2s infinite;
+    margin-top: 20px;
+    display: none;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+.portfolio-image-background {
+    position: relative;
+    width: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+    background-image: url('images/portfolio-background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.portfolio-image-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.portfolio-image-item {
+    border-radius: 52px;
+    overflow: hidden;
+    height: 347px;
+    position: relative;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-image-item:hover {
+    transform: scale(1.05);
+}
+
+.portfolio-image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #fff;
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(245, 140, 139, 0.8);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-image-item:hover .image-caption {
+    transform: translateY(0);
+}
+
+.portfolio-cta {
+    text-align: center;
+    margin-top: 50px;
+    padding: 0 20px;
+}
+
+.portfolio-cta h2 {
+    font-size: 32px;
+    color: #F58C8B;
+    margin-bottom: 20px;
+}
+
+.portfolio-cta .cta-btn {
+    margin: 0 auto;
+}
+
+/* Контактная информация */
+.contact-info {
+    width: 100%;
+    max-width: 1836px;
+    margin: 50px auto;
+    padding: 0 44px;
+}
+
+.contact-container {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+
+.address-button,
+.phone-button {
+    font-family: 'Kelly Slab', serif;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #000000;
+    text-decoration: none;
+    font-size: 22px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.address-button:hover,
+.phone-button:hover {
+    color: #F58C8B;
+}
+
+.address-icon,
+.phone-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.address-button:hover .address-icon,
+.phone-button:hover .phone-icon {
+    transform: scale(1.1);
+}
+
+/* Круглая кнопка */
+.btn-circle {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 115px;
+    height: 116px;
+    font-family: 'Kelly Slab', serif;
+    border-radius: 50%;
+    background-color: #F58C8B;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.btn-circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Модальное окно */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-container {
+    background-color: white;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-50px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-container {
+    transform: translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.modal-header h2 {
+    font-family: 'Kelly Slab', serif;
+    color: #F58C8B;
+    font-size: 28px;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: #F58C8B;
+}
+
+.modal-form .form-group {
+    margin-bottom: 20px;
+}
+
+.modal-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-family: 'Kelly Slab', serif;
+    color: #333;
+    font-size: 18px;
+}
+
+.modal-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    font-family: 'Kelly Slab', serif;
+}
+
+.modal-form input:focus {
+    border-color: #F58C8B;
+    outline: none;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background-color: #F58C8B;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Kelly Slab', serif;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #d47a79;
+}
+
+/* Фоновое изображение сердца */
+.heart-background {
+    position: absolute;
+    bottom: -100px;
+    right: 0;
+    z-index: 1;
+    opacity: 0.1;
+}
+
+.heart-background img {
+    width: 1149px;
+    height: 1057px;
+}
+
+/* Бургер меню */
+.burger-menu {
+    cursor: pointer;
+    padding: 12px;
+    z-index: 1000;
+    display: none;
+    margin-left: auto;
+    order: 3;
+}
+
+.burger-icon {
+    width: 30px;
+    height: 3px;
+    background-color: #F58C8B;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.burger-icon::before,
+.burger-icon::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background-color: #F58C8B;
+    transition: all 0.3s ease;
+}
+
+.burger-icon::before {
+    top: -8px;
+}
+
+.burger-icon::after {
+    top: 8px;
+}
+
+.burger-menu.active .burger-icon {
+    background-color: transparent;
+}
+
+.burger-menu.active .burger-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.burger-menu.active .burger-icon::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.98);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    padding: 20px;
+    backdrop-filter: blur(5px);
+    overflow-y: auto;
+}
+
+.mobile-menu.active {
+    transform: translateX(0);
+}
+
+.mobile-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+    padding: 0;
+    margin: 0 0 40px 0;
+    width: 100%;
+    max-width: 300px;
+}
+
+.mobile-menu a {
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+    display: block;
+    padding: 10px 0;
+}
+
+.mobile-menu a:hover {
+    color: #F58C8B;
+}
+
+.close-menu {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 36px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #F58C8B;
+    transition: transform 0.3s ease;
+}
+
+.close-menu:hover {
+    transform: rotate(90deg);
+}
+
+.contact-info-mobile {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    padding: 0 20px;
+}
+
+.contact-info-mobile .address-button,
+.contact-info-mobile .phone-button {
+    font-size: 18px;
+    white-space: normal;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contact-info-mobile .address-button span,
+.contact-info-mobile .phone-button span {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.social-icons-mobile {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    justify-content: center;
+    width: 100%;
+}
+
+.social-icons-mobile img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons-mobile img:hover {
+    transform: scale(1.1);
+}
+
+/* Адаптация */
+@media (max-width: 1600px) {
+    .portfolio-image-item {
+        height: 28vw;
+    }
+}
+
+@media (max-width: 1440px) {
+    .container {
+        padding: 0 30px;
+    }
+    .portfolio-image-item {
+        height: 30vw;
+    }
+}
+
+@media (max-width: 1280px) {
+    .portfolio-image-item {
+        height: 32vw;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+    .menu a {
+        font-size: 20px;
+    }
+    .btn-online {
+        width: 200px;
+        height: 50px;
+        font-size: 18px;
+    }
+    .btn-call {
+        width: 160px;
+        height: 50px;
+        font-size: 18px;
+    }
+    .portfolio-image-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .portfolio-image-item {
+        height: 28vw;
+    }
+    .heart-background img {
+        width: 800px;
+        height: auto;
+    }
+}
+
+@media (max-width: 900px) {
+    .portfolio-image-item {
+        height: 35vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-wrap: wrap;
+        padding: 10px 20px;
+        gap: 15px;
+        justify-content: center;
+    }
+    .logo {
+        margin-right: 0;
+        width: 100%;
+        text-align: center;
+        order: 1;
+    }
+    .burger-menu {
+        display: block;
+        order: 2;
+        margin-left: 0;
+        padding: 15px;
+        position: absolute;
+        right: 20px;
+    }
+    .menu,
+    .buttons,
+    .social-icons {
+        display: none !important;
+    }
+    .portfolio-description h1 {
+        font-size: 32px;
+    }
+    .portfolio-description p {
+        font-size: 18px;
+    }
+    .scroll-hint {
+        display: block;
+    }
+    .portfolio-image-container {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+        padding: 20px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        scroll-behavior: smooth; /* Добавлено для плавного скролла */
+    }
+    .portfolio-image-container::-webkit-scrollbar {
+        display: none;
+    }
+    .portfolio-image-item {
+        scroll-snap-align: start;
+        flex: 0 0 80%;
+        height: 350px;
+        min-width: 300px;
+    }
+    .image-caption {
+        font-size: 16px;
+        padding: 10px;
+        transform: translateY(0);
+        opacity: 1;
+    }
+    .portfolio-image-background {
+        background-image: none;
+        height: auto;
+        border-radius: 15px;
+    }
+    .btn-circle {
+        width: 90px;
+        height: 90px;
+        font-size: 14px;
+        bottom: 30px;
+        right: 30px;
+    }
+    .heart-background img {
+        width: 500px;
+    }
+    .portfolio-hero {
+        padding: 0 20px;
+    }
+    .contact-info {
+        display: none;
+    }
+    .modal-container {
+        width: 90% !important;
+        max-width: 90% !important;
+        padding: 20px !important;
+    }
+    .modal-header h2 {
+        font-size: 24px;
+    }
+    .modal-form label {
+        font-size: 16px;
+    }
+    .modal-form input {
+        font-size: 14px;
+    }
+    .btn-submit {
+        font-size: 16px;
+    }
+    .mobile-menu ul {
+        gap: 20px;
+    }
+    .mobile-menu a {
+        font-size: 22px;
+    }
+    .contact-info-mobile {
+        padding: 0 15px;
+    }
+    .contact-info-mobile .address-button,
+    .contact-info-mobile .phone-button {
+        font-size: 16px;
+    }
+    .additional-info {
+        padding: 30px 20px;
+    }
+    .info-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .info-card {
+        padding: 20px;
+    }
+    .portfolio-cta h2 {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 600px) {
+    .portfolio-image-item {
+        flex: 0 0 85%;
+        height: 320px;
+        min-width: 280px;
+    }
+    .portfolio-description h1 {
+        font-size: 28px;
+    }
+    .portfolio-description p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px 15px;
+    }
+    .logo img {
+        width: 180px;
+    }
+    .burger-menu {
+        width: 30px;
+        height: 24px;
+        padding: 12px 8px;
+    }
+    .burger-icon,
+    .burger-icon::before,
+    .burger-icon::after {
+        width: 24px;
+    }
+    .portfolio-image-item {
+        flex: 0 0 90%;
+        height: 280px;
+        min-width: 250px;
+    }
+    .btn-circle {
+        width: 80px;
+        height: 80px;
+        font-size: 12px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .modal-header h2 {
+        font-size: 20px;
+    }
+    .modal-form label {
+        font-size: 14px;
+    }
+    .modal-form input {
+        font-size: 13px;
+        padding: 10px;
+    }
+    .btn-submit {
+        font-size: 14px;
+        padding: 12px;
+    }
+    .mobile-menu a {
+        font-size: 20px;
+    }
+    .contact-info-mobile .address-button,
+    .contact-info-mobile .phone-button {
+        font-size: 14px;
+    }
+    .portfolio-cta h2 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 375px) {
+    .portfolio-image-item {
+        flex: 0 0 95%;
+        height: 250px;
+        min-width: 230px;
+    }
+    .mobile-menu a {
+        font-size: 18px;
+    }
+    .contact-info-mobile .address-button,
+    .contact-info-mobile .phone-button {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 320px) {
+    .logo img {
+        width: 150px;
+    }
+    .portfolio-image-item {
+        flex: 0 0 100%;
+        height: 220px;
+        min-width: 200px;
+    }
+    .btn-circle {
+        width: 70px;
+        height: 70px;
+        font-size: 11px;
+    }
+    .mobile-menu a {
+        font-size: 16px;
+    }
+    .contact-info-mobile .address-button,
+    .contact-info-mobile .phone-button {
+        font-size: 12px;
+    }
+}

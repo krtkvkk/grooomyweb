@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Услуги | Груминг салон</title>
+    <link rel="stylesheet" href="uslugi.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+    <meta name="description" content="Профессиональные услуги груминга для ваших питомцев в Санкт-Петербурге">
+    <style>
+        /* Дополнительные стили для адаптации */
+        @media (max-width: 768px) {
+            .menu, .buttons, .social-icons {
+                display: none !important;
+            }
+            .burger-menu {
+                display: block !important;
+            }
+            .logo {
+                width: 100%;
+                text-align: center;
+                margin-right: 0;
+            }
+            .container {
+                justify-content: space-between;
+                padding: 10px 15px;
+            }
+            .service-item {
+                height: 80vw !important;
+                min-height: 300px !important;
+            }
+            .service-item h3 {
+                font-size: 5vw !important;
+            }
+            .service-price {
+                font-size: 4vw !important;
+                padding: 2vw 4vw !important;
+            }
+            .services-description {
+                font-size: 3.5vw !important;
+                padding: 0 5vw;
+            }
+            .all-services-button {
+                font-size: 4vw !important;
+                padding: 3vw 6vw !important;
+            }
+            .modal-container {
+                width: 90% !important;
+                max-width: 90% !important;
+                padding: 5vw !important;
+            }
+            .services-table th, 
+            .services-table td {
+                font-size: 2.5vw !important;
+                padding: 2vw !important;
+            }
+            .mobile-menu ul {
+                gap: 4vw !important;
+            }
+            .mobile-menu a {
+                font-size: 5vw !important;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .service-item {
+                height: 40vw !important;
+            }
+            .service-item h3 {
+                font-size: 2.5vw !important;
+            }
+            .service-price {
+                font-size: 2vw !important;
+            }
+            .services-description {
+                font-size: 2vw !important;
+            }
+        }
+
+        @media (min-width: 1025px) and (max-width: 1600px) {
+            .service-item {
+                height: 30vw !important;
+            }
+        }
+
+        @media (min-width: 1601px) {
+            .service-item {
+                height: 26vw !important;
+            }
+        }
+
+        /* Общие улучшения для модальных окон */
+        .modal-container {
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        #servicesModalOverlay .modal-container {
+            max-height: 80vh;
+        }
+        
+        .services-table-container {
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/Logo.png" alt="Логотип" loading="lazy">
+                </a>
+            </div>
+            
+            <div class="burger-menu">
+    <div class="burger-icon"></div>
+</div>
+            
+            <nav class="menu">
+                <ul>
+                    <li><a href="uslugi.html" class="active">Услуги</a></li>
+                    <li><a href="portfolio.html">Портфолио</a></li>
+                    <li><a href="blog.html">Блог</a></li>
+                    <li><a href="o nas.html">О нас</a></li>
+                </ul>
+            </nav>
+            
+            <div class="buttons">
+                <button class="btn btn-online">Онлайн-запись</button>
+                <a href="tel:+78126234350" class="btn btn-call">Позвонить</a>
+            </div>
+            
+            <div class="social-icons">
+                <a href="#" class="social-icon instagram" aria-label="Инстаграм">
+                    <img src="images/instagram 1.png" alt="Инстаграм" loading="lazy">
+                </a>
+                <a href="#" class="social-icon telegram" aria-label="Телеграм">
+                    <img src="images/TG.png" alt="Телеграм" loading="lazy">
+                </a>
+            </div>
+        </div>
+        
+        <!-- Мобильное меню -->
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="uslugi.html" class="active">Услуги</a></li>
+                <li><a href="portfolio.html">Портфолио</a></li>
+                <li><a href="blog.html">Блог</a></li>
+                <li><a href="o nas.html">О нас</a></li>
+            </ul>
+            <div class="contact-info-mobile">
+                <a href="https://maps.google.com/?q=Санкт-Петербург,+Октябрьская+набережная,+30" target="_blank" class="address-button">
+                    <img src="images/адрес.png" alt="Адрес" class="address-icon" loading="lazy">
+                    <span>Санкт-Петербург, Октябрьская набережная, 30</span>
+                </a>
+                <a href="tel:+78126234350" class="phone-button">
+                    <img src="images/334350-middle 1.png" alt="Телефон" class="phone-icon" loading="lazy">
+                    <span>+7(812) 623-43-50</span>
+                </a>
+                <div class="social-icons-mobile">
+                    <a href="#" class="social-icon instagram" aria-label="Инстаграм">
+                        <img src="images/instagram 1.png" alt="Инстаграм" loading="lazy">
+                    </a>
+                    <a href="#" class="social-icon telegram" aria-label="Телеграм">
+                        <img src="images/TG.png" alt="Телеграм" loading="lazy">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="services-page">
+        <section class="services-hero">
+            <div class="services-container">
+                <div class="popular-services">
+                    <div class="service-item" style="background-image: url('images/kompleks\ strizhka.png')">
+                        <div class="service-content">
+                            <button class="info-button" aria-label="Информация">i</button>
+                            <div class="service-tooltip">
+                                <p>В комплексе со стрижкой выполняются следующие процедуры:
+- Очищение шерсти с помощью мытья и сушки.
+- Стрижка различных зон тела с учетом породы и предпочтений владельца.
+- Чистка ушей и обработка подушечек для поддержания гигиены.
+- Финишная укладка шерсти с использованием спецсредств для блеска и здоровья.
+- Консультация владельца о дальнейшем уходе за питомцем.</p>
+                            </div>
+                            <h3>КОМПЛЕКС СО СТРИЖКОЙ</h3>
+                            <button class="service-price">от 3000 ₽</button>
+                        </div>
+                    </div>
+                    <div class="service-item" style="background-image: url('images/gigena.png')">
+                        <div class="service-content">
+                            <button class="info-button" aria-label="Информация">i</button>
+                            <div class="service-tooltip">
+                                <p>В комплексе с гигиеной предусмотрены следующие процедуры:
+- Мытье и сушка шерсти для поддержания чистоты.
+- Чистка ушей от серы и грязи для предотвращения заболеваний.
+- Чистка зубов с использованием специализированных средств для гигиены полости рта.
+- Обработка когтей – стрижка и подпиливание для предотвращения травм.
+- Обработка анальных желез при необходимости для поддержания здоровья питомца.</p>
+                            </div>
+                            <h3>КОМПЛЕКС С ГИГИЕНОЙ</h3>
+                            <button class="service-price">от 2000 ₽</button>
+                        </div>
+                    </div>
+                    <div class="service-item" style="background-image: url('images/spa.png')">
+                        <div class="service-content">
+                            <button class="info-button" aria-label="Информация">i</button>
+                            <div class="service-tooltip">
+                                <p>SPA комплекс включает в себя:
+- Ароматерапия – расслабляющие процедуры с использованием эфирных масел.
+- Массаж – для улучшения циркуляции крови и снятия напряжения.
+- Пилинг кожи – удаление омертвевших клеток для здоровья и красоты.
+- Увлажнение шерсти и кожи с помощью специальных кондиционеров.
+- Терапия с глиной или грязью – для улучшения состояния кожи и шерсти.</p>
+                            </div>
+                            <h3>SPA КОМПЛЕКСЫ</h3>
+                            <button class="service-price">от 1000 ₽</button>
+                        </div>
+                    </div>
+                    <div class="service-item" style="background-image: url('images/lin\'ka.png')">
+                        <div class="service-content">
+                            <button class="info-button" aria-label="Информация">i</button>
+                            <div class="service-tooltip">
+                                <p>Комплекс с экспресс линькой включает:
+- Быструю чистку шерсти с помощью специальных инструментов.
+- Удаление отмерших волос и подшерстка для предотвращения линьки.
+- Обработку кожи для уменьшения раздражения.
+- Купание с использованием линькоустраняющих шампуней.
+- Сушку и стайлинг для завершения процедуры.</p>
+                            </div>
+                            <h3>КОМПЛЕКС С ЭКСПРЕСС-ЛИНЬКОЙ</h3>
+                            <button class="service-price">от 2500 ₽</button>
+                        </div>
+                    </div>
+                    <div class="service-item" style="background-image: url('images/vip.png')">
+                        <div class="service-content">
+                            <button class="info-button" aria-label="Информация">i</button>
+                            <div class="service-tooltip">
+                                <p>Комплекс включает:
+- Индивидуальную консультацию с выбором процедур.
+- Глубокое очищение шерсти с применением премиум средств.
+- Массаж для расслабления питомца.
+- Ванночку с ароматерапией для улучшения настроения.
+- Стрижку и укладку по индивидуальным предпочтениям.
+- Финальную обработку специальными средствами для блеска и защиты шерсти.</p>
+                            </div>
+                            <h3>VIP КОМПЛЕКС</h3>
+                            <button class="service-price">6000 ₽</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="services-description">
+                    Собрали наши самые популярные услуги в комплексы для Вашего удобства.<br>
+                    В них входят все необходимые процедуры
+                </div>
+                
+                <div class="all-services-container">
+                    <a href="#" class="all-services-button" id="showAllServices">
+                        Посмотреть все услуги
+                        <img src="images/eye.png" alt="Стрелка" loading="lazy">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="heart-background">
+                <img src="images/heart bckgrnd.png" alt="Фоновое изображение сердца" loading="lazy">
+            </div>
+        </section>
+    </main>
+
+    <div class="contact-info">
+        <div class="contact-container">
+            <a href="https://maps.google.com/?q=Санкт-Петербург,+Октябрьская+набережная,+30" target="_blank" class="address-button">
+                <img src="images/адрес.png" alt="Адрес" class="address-icon" loading="lazy">
+                <span>Санкт-Петербург, Октябрьская набережная, 30</span>
+            </a>
+            <a href="tel:+78126234350" class="phone-button">
+                <img src="images/334350-middle 1.png" alt="Телефон" class="phone-icon" loading="lazy">
+                <span>+7(812) 623-43-50</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="circle-button">
+        <button class="btn-circle" aria-label="Онлайн-запись">Онлайн-запись</button>
+    </div>
+
+    <div class="modal-overlay" id="servicesModalOverlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Все услуги</h2>
+                <button class="modal-close" id="servicesModalClose" aria-label="Закрыть">&times;</button>
+            </div>
+            <div class="modal-content">
+                <div class="services-table-container">
+                    <table class="services-table">
+                        <thead>
+                            <tr>
+                                <th>Наименование услуги</th>
+                                <th>Описание</th>
+                                <th>Стоимость</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>КОМПЛЕКС СО СТРИЖКОЙ</td>
+                                <td>Включает мытье, сушку, стрижку и укладку шерсти. Уделяем внимание породе и пожеланиям владельца для идеального результата.</td>
+                                <td>от 3000 ₽</td>
+                            </tr>
+                            <tr>
+                                <td>КОМПЛЕКС С ГИГИЕНОЙ</td>
+                                <td>Очищение ушей, обработка подушечек и стрижка зоны вокруг ануса. Это помогает поддерживать гигиеничность и здоровье питомца.</td>
+                                <td>от 2000 ₽</td>
+                            </tr>
+                            <tr>
+                                <td>SPA КОМПЛЕКС</td>
+                                <td>Включает в себя глубокую аромотерапию, массаж, уход за кожей и специальный кондиционер для блеска и шелковистости. Этот комплекс подарит вашему питомцу настоящий релакс</td>
+                                <td>от 1000 ₽</td>
+                            </tr>
+                            <tr>
+                                <td>КОМПЛЕКС С ЭКСПРЕСС-ЛИНЬКОЙ</td>
+                                <td>Быстрое удаление лишней шерсти с помощью мытья и специальной сушки. Идеально подходит для сезонной линьки, чтобы ваш питомец всегда выглядел ухоженно</td>
+                                <td>от 2500 ₽</td>
+                            </tr>
+                            <tr>
+                                <td>VIP КОМПЛЕКС</td>
+                                <td>Полное обслуживание высокого уровня: индивидуальный уход, ароматерапия, финишная укладка и консультации по уходу с использованием премиум средств. Ваш любимец получит королевское внимание!</td>
+                                <td>6000 ₽</td>
+                            </tr>
+                            <tr>
+                                <td>СТРИЖКА КОГТЕЙ</td>
+                                <td>Опытные грумеры быстро и безболезненно подстригут когти вашего питомца, что поможет предотвратить травмы и дискомфорт.</td>
+                                <td>300 ₽</td>
+                            </tr>
+                            <tr>
+                                <td>ЧИСТКА УШЕЙ</td>
+                                <td>Специальные препараты и инструменты используются для бережной чистки ушных раковин, что помогает избежать воспаления и инфекций.</td>
+                                <td>400 ₽</td>
+                            </tr>
+                            <tr>
+                                <td>СТРИЖКА ПОД МАШИНКУ</td>
+                                <td>Быстрая и аккуратная стрижка для собак и кошек с короткой шерстью, позволяющая поддерживать ухоженный вид.</td>
+                                <td>600 ₽</td>
+                            </tr>
+                            <tr>
+                                <td>УСЛУГА ПО ВЫЧЕСЫВАНИЮ ШЕРСТИ</td>
+                                <td>Профессиональное вычесывание шерсти поможет избавиться от спутанных волос и подшерстка, а также снизить линьку.</td>
+                                <td>500 ₽</td>
+                            </tr>
+                            <tr>
+                                <td>МЫТЬЕ И СУШКА</td>
+                                <td>Услуга включает качественное мытье животного с использованием профессиональных шампуней и кондиционеров, а также аккуратную сушку.</td>
+                                <td>800 ₽</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Записаться на прием</h2>
+                <button class="modal-close" id="bookingModalClose" aria-label="Закрыть">&times;</button>
+            </div>
+            <form class="modal-form">
+                <div class="form-group">
+                    <label for="name">Введите ваше имя</label>
+                    <input type="text" id="name" placeholder="Ваше имя" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Введите ваш номер</label>
+                    <input type="tel" id="phone" placeholder="+7 (___) ___-__-__" required>
+                </div>
+                <button type="submit" class="btn-submit">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Бургер-меню
+        const burgerMenu = document.querySelector('.burger-menu');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        burgerMenu.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+        });
+        
+        // Закрытие меню при клике на ссылку
+        const mobileLinks = document.querySelectorAll('.mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                burgerMenu.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Модальные окна
+        const modalOverlay = document.getElementById('modalOverlay');
+        const bookingModalClose = document.getElementById('bookingModalClose');
+        const circleButton = document.querySelector('.btn-circle');
+        const servicePriceButtons = document.querySelectorAll('.service-price');
+        const onlineButtons = document.querySelectorAll('.btn-online');
+        
+        circleButton.addEventListener('click', function() {
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        onlineButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                modalOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        servicePriceButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                modalOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        bookingModalClose.addEventListener('click', function() {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('input', function(e) {
+            let x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+            e.target.value = !x[2] ? x[1] : '+7 (' + x[2] + (x[3] ? ') ' + x[3] : '') + (x[4] ? '-' + x[4] : '') + (x[5] ? '-' + x[5] : '');
+        });
+        
+        const form = document.querySelector('.modal-form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            console.log('Имя:', name);
+            console.log('Телефон:', phone);
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            form.reset();
+            alert('Спасибо! Мы скоро с вами свяжемся.');
+        });
+
+        // Модальное окно для всех услуг
+        const showAllServicesButton = document.getElementById('showAllServices');
+        const servicesModalOverlay = document.getElementById('servicesModalOverlay');
+        const servicesModalClose = document.getElementById('servicesModalClose');
+        
+        showAllServicesButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            servicesModalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        servicesModalClose.addEventListener('click', function() {
+            servicesModalOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        servicesModalOverlay.addEventListener('click', function(e) {
+            if (e.target === servicesModalOverlay) {
+                servicesModalOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Информационные подсказки - обновленный код
+        function setupTooltips() {
+            const infoButtons = document.querySelectorAll('.info-button');
+            
+            infoButtons.forEach(button => {
+                // Удаляем все предыдущие обработчики
+                button.removeEventListener('mouseenter', showDesktopTooltip);
+                button.removeEventListener('mouseleave', hideDesktopTooltip);
+                button.removeEventListener('click', showMobileTooltip);
+                
+                if (window.innerWidth > 768) {
+                    // Для десктопа
+                    button.addEventListener('mouseenter', showDesktopTooltip);
+                    button.addEventListener('mouseleave', hideDesktopTooltip);
+                } else {
+                    // Для мобильных
+                    button.addEventListener('click', showMobileTooltip);
+                }
+            });
+        }
+
+        function showDesktopTooltip() {
+            this.nextElementSibling.style.opacity = '1';
+            this.nextElementSibling.style.visibility = 'visible';
+        }
+
+        function hideDesktopTooltip() {
+            this.nextElementSibling.style.opacity = '0';
+            this.nextElementSibling.style.visibility = 'hidden';
+        }
+
+        function showMobileTooltip(e) {
+            e.stopPropagation();
+            const tooltipContent = this.nextElementSibling.querySelector('p').innerHTML;
+            
+            const overlay = document.createElement('div');
+            overlay.className = 'tooltip-overlay';
+            overlay.innerHTML = `
+                <div class="tooltip-container">
+                    <button class="tooltip-close" aria-label="Закрыть">&times;</button>
+                    <div class="tooltip-content">${tooltipContent}</div>
+                </div>
+            `;
+            
+            document.body.appendChild(overlay);
+            document.body.style.overflow = 'hidden';
+            
+            setTimeout(() => {
+                overlay.classList.add('active');
+            }, 10);
+            
+            // Закрытие по клику на крестик
+            overlay.querySelector('.tooltip-close').addEventListener('click', function() {
+                overlay.classList.remove('active');
+                setTimeout(() => {
+                    document.body.removeChild(overlay);
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            });
+            
+            // Закрытие по клику вне контейнера
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) {
+                    overlay.classList.remove('active');
+                    setTimeout(() => {
+                        document.body.removeChild(overlay);
+                        document.body.style.overflow = 'auto';
+                    }, 300);
+                }
+            });
+        }
+
+        // Инициализация при загрузке
+        document.addEventListener('DOMContentLoaded', setupTooltips);
+        
+        // Обновление при изменении размера окна
+        window.addEventListener('resize', setupTooltips);
+
+        // Адаптация для ресайза
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+                burgerMenu.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
